@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Chúc mừng 20/10</title>
+<style>
+  body {
+    background-color: black;
+    color: red;
+    font-family: monospace;
+    white-space: pre;
+    padding: 20px;
+  }
+  button {
+    font-size: 18px;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  #output {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h2>20/10 có hay không?</h2>
+<button onclick="chonCo()">Có</button>
+<button onclick="chonKhong()">Không</button>
+
+<div id="output"></div>
+
+<script>
+const heart = [
+  "                *****               *****                ",
+  "            ***********         ***********              ",
+  "         *****************     *****************         ",
+  "       *******************************************       ",
+  "     ***********************************************     ",
+  "    *************************************************    ",
+  "   ***************************************************   ",
+  "   ***************************************************   ",
+  "    *************************************************    ",
+  "     ***********************************************     ",
+  "       *******************************************       ",
+  "         ***************************************         ",
+  "           ***********************************           ",
+  "             *******************************             ",
+  "               ***************************               ",
+  "                 ***********************                 ",
+  "                   *******************                   ",
+  "                     ***************                     ",
+  "                       ***********                       ",
+  "                         *******                         ",
+  "                           ***                           ",
+  "                            *                            "
+];
+
+const msg = "           CHUC MUNG NGAY 20/10 - GUYET TOI NHUNG NGUOI PHU NU TUYET VOI!\n VA TRAN DAY NANG LUONG SONG LUON XINH DEP VA CHO TAO TI TIEN!";
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function chonCo() {
+  const output = document.getElementById("output");
+  output.innerText = "";
+
+    for (let i = 0; i < heart.length; i++) {
+    let line = "";
+    for (let j = 0; j < heart[i].length; j++) {
+      line += heart[i][j];
+      output.innerText = output.innerText + heart[i][j];
+      await sleep(4);
+    }
+    output.innerText += "\n";
+    await sleep(30);
+  }
+
+  output.innerText += "\n\n";
+
+  
+  for (let k = 0; k < msg.length; k++) {
+    output.innerText += msg[k];
+    await sleep(30);
+  }
+}
+
+function chonKhong() {
+  const output = document.getElementById("output");
+  output.innerText = "KHONG THI THOI PHAI CHIUUUU DUNG CO KEU";
+}
+</script>
+
+</body>
+</html>
+
